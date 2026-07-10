@@ -1,0 +1,63 @@
+# Python
+# 注意：本仓库以 .pyc 字节码分发核心代码，不能忽略 *.pyc；
+# __pycache__/ 仍忽略（运行时缓存）
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Mouse Event Recorder
+mouse_recordings/
+recordings*
+test_recordings/
+agent_test_recordings/
+demo_recordings/
+event_recordings/
+sop/*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+logs/
+results/
+*.log
+request.txt
+.comate/
+replay_temp/
+replay_logs/
+Open-AutoGLM/
+assets/
+legacy*
+# Secrets
+.env

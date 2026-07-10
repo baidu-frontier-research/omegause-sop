@@ -1,0 +1,17 @@
+Global:
+  version: "2.0"
+  group_email: xiaoyixiong@baidu.com
+
+Default:
+  profile: [publish]
+
+Profiles:
+  - profile:
+    name: publish
+    mode: AGENT
+    environment:
+      image: DECK_STD_CENTOS7
+      tools:
+        - python: 3.9.16
+    build:
+      command: echo "Skipping build step"
