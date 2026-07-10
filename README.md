@@ -8,6 +8,10 @@
 
 ---
 
+![Comparison between GUI agents without SOP (top) and with SOP (bottom)](assets/sop-overview.png)
+
+*General computer use succeeds on general tasks but fails on professional workflows (top). With SOP Engineering — Observe → Reason → Configure → Execute plus iterative refinement — demonstrations become stable, reusable SOP skills that make professional workflows succeed (bottom).*
+
 OmegaUse-SOP is a **human-in-the-loop SOP Engineering system** that transforms human demonstrations of professional computer use into reusable **SOP skills** for GUI agents.
 
 General-purpose GUI agents perform well on open-ended computer-use benchmarks, but professional workflows are different: they depend on **domain-specific standard operating procedures (SOPs)**, software-specific conventions, implicit expert knowledge, configurable task parameters, and task-level verification. A professional workflow is not merely a long sequence of clicks — it is a trained practice.
