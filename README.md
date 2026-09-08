@@ -141,15 +141,6 @@ sop/{app_name}/{session_name}/
 
 **SOP Engineering is iterative**: if an execution run fails, refine `domain.md` with the rule the agent missed (or adjust `params.md`) and execute again — no re-recording needed.
 
-## Safety and Privacy
-
-Read this before recording a demonstration.
-
-- **Recording captures everything, not just the target application.** Observe installs a *global* keyboard hook (`agents/observe/observer.py`) and takes full-screen screenshots. Anything you type while recording is active — in any window, including passwords, tokens and chat messages — is written in plain text into `recording.json`, and whatever is on screen is saved under `screenshots/`. Recordings are not encrypted or redacted. Stop the recording (`Ctrl+Alt+R`) before switching to unrelated windows, and review a session directory before sharing it.
-- **Execute drives your real mouse and keyboard.** It acts on the live desktop, not a sandbox. Run it on a machine and account where mis-clicks are acceptable, and keep your hands off the input devices while a run is in progress.
-- **PyAutoGUI's fail-safe is disabled** in `agents/execute/executor.py`, `agents/execute/action_executor.py` and `agents/observe/observer.py` (`pyautogui.FAILSAFE = False`), so moving the pointer to a screen corner will *not* abort a run. Set it back to `True` if you want that emergency stop.
-- **Prompts and model responses are printed to the console**, including the contents of `params.md`. Avoid putting secrets in the configuration files, and be careful when sharing terminal output or recordings of a run.
-
 ## Repository Layout
 
 ```
@@ -197,7 +188,3 @@ Paper: [**arXiv:2609.02149**](https://arxiv.org/abs/2609.02149) — accepted to 
 
 - [OmegaUse](https://arxiv.org/abs/2601.20380) — Building a General-Purpose GUI Agent for Autonomous Task Execution
 - [OmniParser](https://arxiv.org/abs/2408.00203) — Pure-vision-based screen parsing used by the Observe module
-
-
-
-
