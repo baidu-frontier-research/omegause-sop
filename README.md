@@ -151,7 +151,7 @@ omegause-sop/
 │   ├── observe/                 # Observe module: event recording + screenshot + UI-element parsing
 │   ├── reason/                  # Reason module: VLM semantic abstraction of the trace
 │   └── execute/                 # Execute module: grounding, action generation, verification
-├── ui/, ui_en.py                # interactive CLI interface (rich + questionary)
+├── ui/                          # interactive CLI interface (rich + questionary)
 ├── prompts/                     # system prompts and page-readiness prompts
 ├── utils/                       # Computer-Use function-call tools, notifications
 └── domain_knowledge_template/   # example domain.md / params.md for PVsyst

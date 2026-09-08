@@ -29,7 +29,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from ui_en import (
+from ui.en import (
     EscapePressed,
     confirm,
     console,
