@@ -6,13 +6,15 @@
 
 Baidu, Inc. &nbsp;×&nbsp; Ningxia Electric Power Engineering Co., Ltd.
 
+[![arXiv](https://img.shields.io/badge/arXiv-2609.02149-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2609.02149)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Platform](https://img.shields.io/badge/Platform-Windows_10%2F11-0078D6?logo=windows&logoColor=white)](#requirements)
 
+[📄 Paper](https://arxiv.org/abs/2609.02149) &nbsp;·&nbsp;
 [📺 Demo Video](https://www.youtube.com/watch?v=FQO_eyL_seE) &nbsp;·&nbsp;
-[📄 Citation](#citation) &nbsp;·&nbsp;
-[🚀 Getting Started](#getting-started)
+[🚀 Getting Started](#getting-started) &nbsp;·&nbsp;
+[📄 Citation](#citation)
 
 <br>
 
@@ -178,13 +180,20 @@ the Qwen-VL cookbooks, also Apache-2.0; see [NOTICE](NOTICE) for attribution.
 
 ## Citation
 
+Paper: [**arXiv:2609.02149**](https://arxiv.org/abs/2609.02149) — accepted to the **EMNLP 2026** demo track.
+
 ```bibtex
 @article{xiao2026omegausesop,
-  title   = {OmegaUse-SOP: SOP Engineering for Professional Computer Use from Human Demonstrations},
-  author  = {Xiao, Yixiong and An, Lang and Yang, Hucheng and Ma, Pinxue and Chen, Yongquan and
-             Cao, Jingjia and Zhao, Yusai and Wang, Ting and Liu, Ting and Bao, Siqi and
-             Zhou, Jingbo and Wu, Hua},
-  year    = {2026}
+  title         = {OmegaUse-SOP: SOP Engineering for Professional Computer Use from Human Demonstrations},
+  author        = {Xiao, Yixiong and An, Lang and Yang, Hucheng and Ma, Pinxue and Chen, Yongquan and
+                   Cao, Jingjia and Zhao, Yusai and Wang, Ting and Liu, Ting and Bao, Siqi and
+                   Zhou, Jingbo and Wu, Hua},
+  year          = {2026},
+  eprint        = {2609.02149},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  doi           = {10.48550/arXiv.2609.02149},
+  url           = {https://arxiv.org/abs/2609.02149}
 }
 ```
 
