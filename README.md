@@ -1,16 +1,35 @@
+<div align="center">
+
 # OmegaUse-SOP
 
 **SOP Engineering for Professional Computer Use from Human Demonstrations**
 
-*Baidu, Inc. × Ningxia Electric Power Engineering Co., Ltd.*
+Baidu, Inc. &nbsp;×&nbsp; Ningxia Electric Power Engineering Co., Ltd.
 
-[📺 Demo Video](https://www.youtube.com/watch?v=FQO_eyL_seE) · [📄 Paper](#citation)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Platform](https://img.shields.io/badge/Platform-Windows_10%2F11-0078D6?logo=windows&logoColor=white)](#requirements)
 
----
+[📺 Demo Video](https://www.youtube.com/watch?v=FQO_eyL_seE) &nbsp;·&nbsp;
+[📄 Citation](#citation) &nbsp;·&nbsp;
+[🚀 Getting Started](#getting-started) &nbsp;·&nbsp;
+[⚠️ Safety and Privacy](#safety-and-privacy)
 
-![Comparison between GUI agents without SOP (top) and with SOP (bottom)](assets/sop-overview.png)
+<br>
 
-*General computer use succeeds on general tasks but fails on professional workflows (top). With SOP Engineering — Observe → Reason → Configure → Execute plus iterative refinement — demonstrations become stable, reusable SOP skills that make professional workflows succeed (bottom).*
+<img src="assets/sop-overview.png" alt="Comparison between GUI agents without SOP (top) and with SOP (bottom)" width="880">
+
+<p>
+<em>
+General computer use succeeds on general tasks but fails on professional workflows <b>(top)</b>.<br>
+With SOP Engineering — Observe → Reason → Configure → Execute plus iterative refinement —<br>
+demonstrations become stable, reusable SOP skills that make professional workflows succeed <b>(bottom)</b>.
+</em>
+</p>
+
+</div>
+
+## Overview
 
 OmegaUse-SOP is a **human-in-the-loop SOP Engineering system** that transforms human demonstrations of professional computer use into reusable **SOP skills** for GUI agents.
 
@@ -47,14 +66,18 @@ Case study on five professional photovoltaic-simulation SOP tasks in **PVsyst 7.
 
 Ablation: removing the **Reason** module drops Qwen3-VL from 5/5 to 2/5 — semantic abstraction of demonstrations is essential for reusable SOPs.
 
-## Requirements
+## Getting Started
 
-- **Windows 10/11** (the agent controls desktop applications through Windows UI automation)
-- **Python 3.12** (exactly 3.12 — see [Distribution note](#distribution-note))
-- An **OmniParser** server endpoint (UI-element detection for the Observe stage)
-- A VLM API key for an OpenAI-compatible endpoint (default: Qwen3-VL via [Baidu Qianfan](https://qianfan.baidubce.com))
+### Requirements
 
-## Installation
+| | |
+|---|---|
+| **OS** | Windows 10/11 — the agent drives desktop applications through Windows UI automation |
+| **Python** | 3.12 or newer (CPython; the pinned version is in `.python-version`) |
+| **Services** | A reachable **OmniParser** endpoint and a **PaddleOCR** endpoint for UI-element detection during Observe |
+| **Model** | A VLM API key for an OpenAI-compatible endpoint (default: Qwen3-VL via [Baidu Qianfan](https://qianfan.baidubce.com)) |
+
+### Installation
 
 ```bash
 git clone https://github.com/baidu-frontier-research/omegause-sop.git
@@ -67,13 +90,14 @@ pip install -e .
 pip install openai qwen-agent tqdm
 ```
 
-## Configuration
+### Configuration
 
 Copy `.env.example` to `.env` and fill in your endpoints:
 
 ```ini
-# OmniParser server (UI-element detection during Observe)
-OMNIPARSER_URL=http://your-omniparser-server:8000
+# UI-element detection during Observe
+OMNIPARSER_URL=http://your-omniparser-server:8101/
+PADDLEX_URL=http://your-paddleocr-server:8101/ocr
 
 # VLM API key (Baidu Qianfan ModelBuilder, OpenAI-compatible)
 QIANFAN_API_KEY=your-api-key
@@ -87,7 +111,11 @@ Optional overrides:
 | `REASON_API_URL` / `ENRICHER_API_URL` | `https://qianfan.baidubce.com/v2` | Reason |
 | `MODEL_NAME` / `API_URL` | same as above | Execute |
 
-## Usage
+### Usage
+
+> [!WARNING]
+> Recording captures your **whole screen and every keystroke**, and Execute drives your
+> **real mouse and keyboard**. Read [Safety and Privacy](#safety-and-privacy) first.
 
 ```bash
 python cli_en.py
@@ -116,6 +144,15 @@ sop/{app_name}/{session_name}/
 
 **SOP Engineering is iterative**: if an execution run fails, refine `domain.md` with the rule the agent missed (or adjust `params.md`) and execute again — no re-recording needed.
 
+## Safety and Privacy
+
+Read this before recording a demonstration.
+
+- **Recording captures everything, not just the target application.** Observe installs a *global* keyboard hook (`agents/observe/observer.py`) and takes full-screen screenshots. Anything you type while recording is active — in any window, including passwords, tokens and chat messages — is written in plain text into `recording.json`, and whatever is on screen is saved under `screenshots/`. Recordings are not encrypted or redacted. Stop the recording (`Ctrl+Alt+R`) before switching to unrelated windows, and review a session directory before sharing it.
+- **Execute drives your real mouse and keyboard.** It acts on the live desktop, not a sandbox. Run it on a machine and account where mis-clicks are acceptable, and keep your hands off the input devices while a run is in progress.
+- **PyAutoGUI's fail-safe is disabled** in `agents/execute/executor.py`, `agents/execute/action_executor.py` and `agents/observe/observer.py` (`pyautogui.FAILSAFE = False`), so moving the pointer to a screen corner will *not* abort a run. Set it back to `True` if you want that emergency stop.
+- **Prompts and model responses are printed to the console**, including the contents of `params.md`. Avoid putting secrets in the configuration files, and be careful when sharing terminal output or recordings of a run.
+
 ## Repository Layout
 
 ```
@@ -132,24 +169,13 @@ omegause-sop/
 └── domain_knowledge_template/   # example domain.md / params.md for PVsyst
 ```
 
-### Requirements
-
-The full source of every module is included in this repository. The code targets **CPython 3.12** (see `.python-version`); the Observe module additionally expects reachable OmniParser and PaddleOCR services, configured through `OMNIPARSER_URL` and `PADDLEX_URL` (see `.env.example`).
+The full source of every module is included in this repository.
 
 ## License
 
 Released under the [Apache License 2.0](LICENSE). Portions of
 `utils/agent_function_call.py` and `agents/execute/executor.py` are adapted from
 the Qwen-VL cookbooks, also Apache-2.0; see [NOTICE](NOTICE) for attribution.
-
-## Safety and Privacy
-
-Read this before recording a demonstration.
-
-- **Recording captures everything, not just the target application.** Observe installs a *global* keyboard hook (`agents/observe/observer.py`) and takes full-screen screenshots. Anything you type while recording is active — in any window, including passwords, tokens and chat messages — is written in plain text into `recording.json`, and whatever is on screen is saved under `screenshots/`. Recordings are not encrypted or redacted. Stop the recording (`Ctrl+Alt+R`) before switching to unrelated windows, and review a session directory before sharing it.
-- **Execute drives your real mouse and keyboard.** It acts on the live desktop, not a sandbox. Run it on a machine and account where mis-clicks are acceptable, and keep your hands off the input devices while a run is in progress.
-- **PyAutoGUI's fail-safe is disabled** in `agents/execute/executor.py`, `agents/execute/action_executor.py` and `agents/observe/observer.py` (`pyautogui.FAILSAFE = False`), so moving the pointer to a screen corner will *not* abort a run. Set it back to `True` if you want that emergency stop.
-- **Prompts and model responses are printed to the console**, including the contents of `params.md`. Avoid putting secrets in the configuration files, and be careful when sharing terminal output or recordings of a run.
 
 ## Citation
 
@@ -167,3 +193,7 @@ Read this before recording a demonstration.
 
 - [OmegaUse](https://arxiv.org/abs/2601.20380) — Building a General-Purpose GUI Agent for Autonomous Task Execution
 - [OmniParser](https://arxiv.org/abs/2408.00203) — Pure-vision-based screen parsing used by the Observe module
+
+
+
+
