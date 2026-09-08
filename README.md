@@ -114,10 +114,6 @@ Optional overrides:
 
 ### Usage
 
-> [!WARNING]
-> Recording captures your **whole screen and every keystroke**, and Execute drives your
-> **real mouse and keyboard**. Read [Safety and Privacy](#safety-and-privacy) first.
-
 ```bash
 python cli_en.py
 ```
