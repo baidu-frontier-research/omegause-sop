@@ -187,4 +187,3 @@ Paper: [**arXiv:2609.02149**](https://arxiv.org/abs/2609.02149) — accepted to 
 ## Related Work
 
 - [OmegaUse](https://arxiv.org/abs/2601.20380) — Building a General-Purpose GUI Agent for Autonomous Task Execution
-- [OmniParser](https://arxiv.org/abs/2408.00203) — Pure-vision-based screen parsing used by the Observe module
