@@ -1,0 +1,21 @@
+旧版没有独立的 Reasoner 模块。enrichment 逻辑散落在 computer_use.ipynb notebook 的 cell 中，
+使用简单的模板拼接 query，没有 system prompt，没有全局工作流分析。
+
+=== notebook cell 中的 VLM query 模板 ===
+
+【click 事件 - 主查询】
+用户在图1屏幕截图中点击了坐标是{x,y}的对象，如图2所示，图3是点击后的屏幕截图。要求:给出用于下次复现该操作的明确提示,按照<hint></hint>输出
+
+【click 事件 - fallback（无 clicked_box 时）】
+用户在图1屏幕截图中点击了坐标是{x,y}的对象,图2是点击后的预期画面。要求:给出用于下次复现该操作的明确提示，按照<hint></hint>输出
+
+【text_input 事件】
+用户输入了{text},需要调用computeruse的type功能,要求:简要介绍这次点击的对象，给出用于下次复现该操作的提示
+
+【keyboard 事件】
+用户输入了{key},需要调用computeruse的type功能,要求:简要介绍这次点击的对象，给出用于下次复现该操作的提示
+
+=== system message ===
+You are a GUI understanding agent.
+
+（仅此一句，无结构化指导）

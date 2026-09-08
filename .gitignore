@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Mouse Event Recorder
+mouse_recordings/
+recordings*
+test_recordings/
+agent_test_recordings/
+demo_recordings/
+event_recordings/
+sop/*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+logs/
+results/
+*.log
+request.txt
+.comate/
+replay_temp/
+replay_logs/
+Open-AutoGLM/
+legacy*
+# Secrets
+.env

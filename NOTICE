@@ -1,0 +1,25 @@
+OmegaUse-SOP
+Copyright (c) 2026 Baidu, Inc. and its affiliates
+
+This product is licensed under the Apache License, Version 2.0 (see the LICENSE
+file).
+
+--------------------------------------------------------------------------------
+
+This product includes software adapted from the Qwen-VL cookbooks:
+
+  Copyright the Qwen team, Alibaba Group.
+  Licensed under the Apache License, Version 2.0.
+  Source: https://github.com/QwenLM/Qwen3-VL
+
+The following files contain adapted code:
+
+  * utils/agent_function_call.py
+      Adapted from cookbooks/utils/agent_function_call.py. Docstrings were
+      added and the click-action list in ComputerUse.call was extracted into a
+      local variable; tool behaviour, action schemas and prompt text are
+      unchanged.
+
+  * agents/execute/executor.py
+      The helper functions encode_image, smart_resize and draw_point are
+      adapted from the Qwen-VL cookbooks.
