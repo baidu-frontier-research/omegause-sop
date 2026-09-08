@@ -12,8 +12,7 @@ Baidu, Inc. &nbsp;×&nbsp; Ningxia Electric Power Engineering Co., Ltd.
 
 [📺 Demo Video](https://www.youtube.com/watch?v=FQO_eyL_seE) &nbsp;·&nbsp;
 [📄 Citation](#citation) &nbsp;·&nbsp;
-[🚀 Getting Started](#getting-started) &nbsp;·&nbsp;
-[⚠️ Safety and Privacy](#safety-and-privacy)
+[🚀 Getting Started](#getting-started)
 
 <br>
 
