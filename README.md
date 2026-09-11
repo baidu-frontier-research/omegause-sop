@@ -4,7 +4,6 @@
 
 **SOP Engineering for Professional Computer Use from Human Demonstrations**
 
-Baidu, Inc. &nbsp;×&nbsp; Ningxia Electric Power Engineering Co., Ltd.
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.02149-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2609.02149)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
@@ -187,3 +186,6 @@ Paper: [**arXiv:2609.02149**](https://arxiv.org/abs/2609.02149) — accepted to 
 ## Related Work
 
 - [OmegaUse](https://arxiv.org/abs/2601.20380) — Building a General-Purpose GUI Agent for Autonomous Task Execution
+
+- [OmegaUse-OfficeVal](https://omegause-officeval.github.io/) — OmegaUse-OfficeVal: Benchmarking LLM Agents on Long-Horizon Office-Suite Tasks with Economic Grounding
+
