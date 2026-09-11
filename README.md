@@ -187,5 +187,5 @@ Paper: [**arXiv:2609.02149**](https://arxiv.org/abs/2609.02149) — accepted to 
 
 - [OmegaUse](https://arxiv.org/abs/2601.20380) — Building a General-Purpose GUI Agent for Autonomous Task Execution
 
-- [OmegaUse-OfficeVal](https://omegause-officeval.github.io/) — OmegaUse-OfficeVal: Benchmarking LLM Agents on Long-Horizon Office-Suite Tasks with Economic Grounding
+- [OmegaUse-OfficeVal](https://omegause-officeval.github.io/) — Benchmarking LLM Agents on Long-Horizon Office-Suite Tasks with Economic Grounding
 
